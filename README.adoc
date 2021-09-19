@@ -1,0 +1,44 @@
+# docker-serverless-poc
+proof of concept for running serverless function via docker
+
+## command line test
+....
+python test.py 
+....
+
+## api test
+start server
+[bash]
+....
+uvicorn server:app --reload
+....
+call http://localhost:8000/
+
+
+## future plan
+### Deploy  Serverless 
+
+curl -X POST -F docker=de.frittenburger/darknet:1.0.0  localhost:8080/myserverlessfunction
+
+### deprecated
+
+curl -X POST -H "Authorization: Bearer myadmntoken" -F pythonfile=@test.py localhost:8080/myserverlessfunction
+
+curl -X POST -F jarfile=@test.jar localhost:8080/myserverlessfunction
+
+curl -X POST -F dockerfile=@Dockerfile  localhost:8080/myserverlessfunction
+
+
+
+### Call function
+
+curl localhost:8080/myserverlessfunction
+
+
+
+
+### Protection
+- api-key
+- https
+
+
